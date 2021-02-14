@@ -1,0 +1,12 @@
+name: word_count
+title: word_count
+username:
+account: abhz
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 3634296
+bundleId: 4220199
+url: https://abhz.shinyapps.io/word_count/
+when: 1613273426.42437
+asMultiple: FALSE
+asStatic: FALSE
