@@ -10,6 +10,7 @@ library(tidyverse)
 library(textreadr)
 library(textclean)
 library(textshape)
+library(wordcloud2)
 
 # Define UI for application that draws a histogram
 ui <- fluidPage(
@@ -33,7 +34,9 @@ ui <- fluidPage(
                               tabPanel("data",
                                        DT::dataTableOutput("summary")),
                               tabPanel("text",
-                                       textOutput("user_text"))
+                                       textOutput("user_text")),
+                              tabPanel("wordcloud",
+                                       wordcloud2Output('wordcloud2'))
         )
         ))
 )
@@ -146,7 +149,17 @@ server <- function(input, output) {
      user_text_clean()
  })
  
+ 
+ output$wordcloud2 <- renderWordcloud2({
+     demoFreq <- dat_formatted() %>% 
+         rename(freq = total_count)
+     
+     wordcloud2(demoFreq)
+ })
+ 
 }
+
+
 
 
 # Run the application 
